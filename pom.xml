@@ -53,7 +53,33 @@
              <outputDirectory>target</outputDirectory>
             </configuration>
         </plugin>
-
+ <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*ServiceTest.class</include>
+					</includes>
+				</configuration>
+			</plugin>
+			
+			 <plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.3</version>
+				<configuration>
+					<destFile>${project.basedir}/../target/jacoco.exec</destFile>
+					<append>true</append>
+				</configuration>
+				<executions>
+					<execution>
+						<id>agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 	
 
     </plugins> 
